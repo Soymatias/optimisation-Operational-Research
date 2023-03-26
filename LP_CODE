@@ -1,3 +1,4 @@
+
 from ortools.linear_solver import pywraplp
 solver = pywraplp.Solver.CreateSolver('GLOP')
 
@@ -8,7 +9,8 @@ y = solver.NumVar(0, solver.infinity(), 'y')
 print('Number of variables =', solver.NumVariables())
 
 solver.Add(y <= 5)
-solver.Add(x,y >= 0.0)
+solver.Add(x >= 0.0)
+solver.Add(y >= 0.0)
 solver.Add(-x+ y <= -2.0)
 solver.Add(x+ y <= 10.0)
 
