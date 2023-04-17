@@ -15,17 +15,12 @@ objective.SetMaximization()
 
 # Define the constraints.
 constraint1 = solver.Constraint(4, solver.infinity())
-constraint1.SetCoefficient(x1, 1)
+constraint1.SetCoefficient(x1, -1)
 constraint1.SetCoefficient(x2, 1)
 
-constraint2 = solver.Constraint(-solver.infinity(), 4)
+constraint2 = solver.Constraint(-solver.infinity(), -4)
 constraint2.SetCoefficient(x1, -1)
-constraint2.SetCoefficient(x2, 1)
-
-constraint3 = solver.Constraint(-solver.infinity(), solver.infinity())
-constraint3.SetCoefficient(x1, -1)
-constraint3.SetCoefficient(x2, 2)
-constraint3.SetBounds(-solver.infinity(), -4)
+constraint2.SetCoefficient(x2, 2)
 
 # Solve the problem.
 status = solver.Solve()
